@@ -6,17 +6,35 @@ const Transport = db.define('transport', {
     transport_status: {
         type: Sequelize.STRING
     },
+    paket_id: {
+        type: Sequelize.INTEGER
+    },
     paket_bez: {
         type: Sequelize.STRING
+    },
+    fach_id: {
+        type: Sequelize.INTEGER
     },
     fach_bez: {
         type: Sequelize.STRING
     },
+    zbs_id: {
+        type: Sequelize.INTEGER
+    },
     zbs_bez: {
         type: Sequelize.STRING
     },
+    tour_id: {
+        type: Sequelize.INTEGER
+    },
     tour_bez: {
         type: Sequelize.STRING
+    },
+    tour: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+    },
+    emp_id: {
+        type: Sequelize.INTEGER
     },
     emp_name: {
         type: Sequelize.STRING
@@ -24,16 +42,24 @@ const Transport = db.define('transport', {
     emp_plz: {
         type: Sequelize.STRING
     },
+    abd_id: {
+        type: Sequelize.INTEGER
+    },
     abd_name: {
         type: Sequelize.STRING
     },
     abd_plz: {
         type: Sequelize.STRING
+    },
+    abholversuch: {
+        type: Sequelize.INTEGER
     }
 
 })
 
 module.exports = Transport
+
+// Sequelize Datatypes: https://sequelize.org/v5/manual/data-types.html
 
 // Change default timestamps: https://stackoverflow.com/questions/39587767/disable-updatedat-update-date-field-in-sequelize-js
 // var user = sequelize.define('user', { /* bla */ }, {

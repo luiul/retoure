@@ -39,7 +39,7 @@ create table transport(
 	abd_name varchar(50) not null, 
 	abd_plz varchar(5) not null, 
 	-- steuerungsdaten
-	abholversuch int check(abholversuch > 0) not null,
+	abholversuch int,
 	createdAt timestamp not null, 
 	updatedAt timestamp
 )

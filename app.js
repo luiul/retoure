@@ -15,6 +15,14 @@ const PORT = process.env.PORT || 5000
 // const DB_USER = process.env.DB_USER
 // const DB_PASSWORD = process.env.DB_PASSWORD
 
+// Handlebars
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
+
+// Set static folder
+app.use(express.static(path.join(__dirname,'public')))
+
+
 // Testing homepage
 app.get('/', (req, res) => {
     res.send('INDEX')

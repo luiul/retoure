@@ -12,8 +12,9 @@ const Transport = require('../models/Transport')
 router.get('/', (req, res) => {
     Transport.findAll()
         .then(transport => {
-            console.log(transport)
-            res.sendStatus(200)
+            res.render('transport',{
+                transport
+            })
         })
         .catch(err => console.log(err))
 })
@@ -22,20 +23,20 @@ router.get('/', (req, res) => {
 router.get('/add', (req, res) => {
     const data = {
         transport_status: 0,
-        paket_id: 1,
-        paket_bez: 'Laptop',
-        fach_id: 1,
-        fach_bez: 'Fach 1',
+        paket_id: 2,
+        paket_bez: 'SSD',
+        fach_id: 2,
+        fach_bez: 'Fach 2',
         zbs_id: 1,
         zbs_bez: 'ZBS 1',
         tour_id: 1,
         tour_bez: 'NRW',
         tour: ['Depot', 'Koeln', 'Duesseldorf', 'Muenster', 'Depot'],
-        emp_id: 1,
-        emp_name: 'Alice',
+        emp_id: 2,
+        emp_name: 'Charlie',
         emp_plz: '00001',
-        abd_id: 1,
-        abd_name: 'Bob',
+        abd_id: 2,
+        abd_name: 'David',
         abd_plz: '00001',
         abholversuch: 0
     }

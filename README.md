@@ -11,37 +11,36 @@ Retoure app to pick up and return packages.
 - [3. Development](#3-development)
 - [4. Prerequisites](#4-prerequisites)
 
-
 # 1. Database
 
-We create only one table for this project and store the necessary data with redundancies (this simplifies the model in our app). 
+We create only one table for this project and store the necessary data with redundancies (this simplifies the model in our app).
 
-```sql 
+```sql
 create table transport(
-	-- transport daten
-	id serial primary key, 
-	transport_status varchar(50) not null, 
-	paket_id int unique not null, 
-	paket_bez varchar(50) not null, 
-	fach_id int not null, 
-	fach_bez varchar(50) not null, 
-	zbs_id int not null,
-	zbs_bez varchar(50) not null,
-	-- tour daten
-	tour_id int not null,
-	tour_bez varchar(50) not null, 
-	tour text[],
-	-- emp und abd daten
-	emp_id int not null,
-	emp_name varchar(50) not null, 
-	emp_plz varchar(5) not null, 
-	abd_id int not null, 
-	abd_name varchar(50) not null, 
-	abd_plz varchar(5) not null, 
-	-- steuerungsdaten
-	abholversuch int,
-	createdAt timestamp not null, 
-	updatedAt timestamp
+ -- transport daten
+ id serial primary key, 
+ transport_status varchar(50) not null, 
+ paket_id int unique not null, 
+ paket_bez varchar(50) not null, 
+ fach_id int not null, 
+ fach_bez varchar(50) not null, 
+ zbs_id int not null,
+ zbs_bez varchar(50) not null,
+ -- tour daten
+ tour_id int not null,
+ tour_bez varchar(50) not null, 
+ tour text[],
+ -- emp und abd daten
+ emp_id int not null,
+ emp_name varchar(50) not null, 
+ emp_plz varchar(5) not null, 
+ abd_id int not null, 
+ abd_name varchar(50) not null, 
+ abd_plz varchar(5) not null, 
+ -- steuerungsdaten
+ abholversuch int,
+ createdAt timestamp not null, 
+ updatedAt timestamp
 )
 ```
 
@@ -107,7 +106,7 @@ create table transport(
 
 # 2. NPM Setup
 
-Run the following command to install the dependencies and get started. 
+Run the following command to install the dependencies and get started.
 
 ```shell
 npm i express sequelize dotenv express-handlebars;
@@ -115,7 +114,7 @@ npm i --save-dev nodemon;
 npm i --save pg pg-hstore
 ```
 
-Update the `scripts` in the `package.json`. 
+Update the `scripts` in the `package.json`.
 
 ```json
 "scripts": {
@@ -129,11 +128,12 @@ Update the `scripts` in the `package.json`.
 
 We perform the following steps:
 
-- Create `.gitignore` file in [gitignore.io](https://www.toptal.com/developers/gitignore) with the following parameters: `dotenv,macos,node` and set up `.env` file. 
+- Create `.gitignore` file in [gitignore.io](https://www.toptal.com/developers/gitignore) with the following parameters: `dotenv,macos,node` and set up `.env` file.
 - Set up server and start it (in localport:5000). Test the server.
 - Set up Sequelize. We store the connection to the database in `./config/database.js` and export the variable `db` to out `app.js`. Test the connection to the database.
-- We create a model for the resources. To simplify the project we create a single model for the transport objects.
-- We create the routes for the project and test them. 
+- Create a model for the resources. To simplify the project we create a single model for the transport objects.
+- Create the routes for the project and test them.
+- Add the middleware to finish the interface of the app.
 
 # 4. Prerequisites
 

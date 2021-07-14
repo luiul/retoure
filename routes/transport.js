@@ -12,15 +12,18 @@ const Transport = require('../models/Transport')
 router.get('/', (req, res) => {
     Transport.findAll()
         .then(transport => {
-            res.render('transport',{
+            res.render('transport', {
                 transport
             })
         })
         .catch(err => console.log(err))
 })
 
+// Display add gig form
+router.get('/add',(req,res)=> res.render('add'))
+
 // Add transport 
-router.get('/add', (req, res) => {
+router.post('/add', (req, res) => {
     const data = {
         transport_status: 0,
         paket_id: 2,

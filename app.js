@@ -4,6 +4,7 @@ const path = require('path')
 const exphbs = require('express-handlebars')
 const dotenv = require('dotenv')
 
+
 dotenv.config({ path: "./.env" })
 
 const app = express()
@@ -20,12 +21,12 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 // Set static folder
-app.use(express.static(path.join(__dirname,'public')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 
-// Testing homepage
+// Index route
 app.get('/', (req, res) => {
-    res.send('INDEX')
+    res.render('index', { layout : 'landing' })
 })
 
 // Transport routes

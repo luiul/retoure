@@ -1,1 +1,34 @@
-<h1>Transport Template</h1>
+<section id="transport" class="container">
+    <h1>All Transport</h1>
+    {{#each transport}}
+    <div class="transport">
+        Test
+        <ul>
+            <li>{{dataValues.transport_status}}</li>
+            <li>{{dataValues.paket_id}}</li>
+            <li>{{dataValues.paket_bez}}</li>
+            <li>{{dataValues.fach_id}}</li>
+            <li>{{dataValues.fach_bez}}</li>
+            <li>{{dataValues.zbs_id}}</li>
+            <li>{{dataValues.zbs_bez}}</li>
+            <li>{{dataValues.tour_id}}</li>
+            <li>{{dataValues.tour_bez}}</li>
+            <li>{{dataValues.tour}}</li>
+            <li>{{dataValues.emp_id}}</li>
+            <li>{{dataValues.emp_name}}</li>
+            <li>{{dataValues.emp_plz}}</li>
+            <li>{{dataValues.abd_id}}</li>
+            <li>{{dataValues.abd_name}}</li>
+            <li>{{dataValues.abd_plz}}</li>
+            <li>{{dataValues.abholversuch}}</li>
+        </ul>
+    </div>
+    {{else}}
+    <p>No transport available</p>
+    {{/each}}
+</section>
+
+{{!--
+transport_status, paket_id, paket_bez, fach_id, fach_bez, zbs_id, zbs_bez, tour_id, tour_bez, tour, emp_id, emp_name,
+emp_plz, abd_id, abd_name, abd_plz, abholversuch
+--}}

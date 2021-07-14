@@ -133,7 +133,7 @@ We perform the following steps:
 - Set up Sequelize. We store the connection to the database in `./config/database.js` and export the variable `db` to out `app.js`. Test the connection to the database.
 - Create a model for the resources. To simplify the project we create a single model for the transport objects.
 - Create the routes for the project and test them.
-- Add the middleware to finish the interface of the app.
+- Add the middleware to finish the interface of the app. Add `handlebars`, `css` files in views and public files respectively. 
 
 # 4. Prerequisites
 

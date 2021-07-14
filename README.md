@@ -1,20 +1,18 @@
 <!-- omit in toc -->
-# Retoure App
+# Retoure App 🚚
 
-<!-- omit in toc -->
-## Description
 Retoure app to pick up and return packages.
 
 <!-- omit in toc -->
-## Table of Contents
+# Table of Contents
 <!-- toc here -->
 - [1. Database](#1-database)
-- [2. NPM Setup](#2-npm-setup) 
+- [2. NPM Setup](#2-npm-setup)
 - [3. Development](#3-development)
 - [4. Prerequisites](#4-prerequisites)
 
 
-## 1. Database
+# 1. Database
 
 We create only one table for this project and store the necessary data with redundancies (this simplifies the model in our app). 
 
@@ -107,7 +105,7 @@ create table transport(
 )
 ```
 
-## 2. NPM Setup
+# 2. NPM Setup
 
 Run the following command to install the dependencies and get started. 
 
@@ -127,7 +125,7 @@ Update the `scripts` in the `package.json`.
 }
 ```
 
-## 3. Development
+# 3. Development
 
 We perform the following steps:
 
@@ -136,9 +134,8 @@ We perform the following steps:
 - Set up Sequelize. We store the connection to the database in `./config/database.js` and export the variable `db` to out `app.js`. Test the connection to the database.
 - We create a model for the resources. To simplify the project we create a single model for the transport objects.
 - We create the routes for the project and test them. 
-- 
 
-## 4. Prerequisites
+# 4. Prerequisites
 
 We make the following prerequisites:
 

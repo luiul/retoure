@@ -1,3 +1,5 @@
+const { Sequelize } = require('sequelize');
+
 // App and database variables
 const DB_NAME = process.env.DB_NAME
 // const HOST = process.env.HOST
@@ -6,7 +8,7 @@ const DB_PASSWORD = process.env.DB_PASSWORD
 
 // Connecting to a database (see https://sequelize.org/master/manual/getting-started.html)
 // we do not add the operatorsAliases:false parameter
-const { Sequelize } = require('sequelize');
+
 
 module.exports = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     host: 'localhost',

@@ -15,10 +15,14 @@ const PORT = process.env.PORT || 5000
 // const DB_USER = process.env.DB_USER
 // const DB_PASSWORD = process.env.DB_PASSWORD
 
-// Testing port
+// Testing homepage
 app.get('/', (req, res) => {
     res.send('INDEX')
 })
+
+// Transport routes
+app.use('/transport', require('./routes/transport'))
+
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`))
 
@@ -33,4 +37,3 @@ try {
 } catch (error) {
     console.error('Unable to connect to the database:', error);
 }
-

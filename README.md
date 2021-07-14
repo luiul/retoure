@@ -16,12 +16,12 @@ Retoure app to pick up and return packages.
 
 ## 1. Database
 
-We create only one table for this project and store the necessary data with redundancies (this simplifies the model in our app): 
+We create only one table for this project and store the necessary data with redundancies (this simplifies the model in our app). 
 
 ```sql 
 create table transport(
 	-- transport daten
-	transport_id serial primary key, 
+	id serial primary key, 
 	transport_status varchar(50) not null, 
 	paket_id int unique not null, 
 	paket_bez varchar(50) not null, 
@@ -42,12 +42,12 @@ create table transport(
 	abd_plz varchar(5) not null, 
 	-- steuerungsdaten
 	abholversuch int check(abholversuch > 0) not null,
-	create_date timestamp not null, 
-	last_update timestamp
+	createdAt timestamp not null, 
+	updatedAt timestamp
 )
 ```
 
-In case we want to avoid redundancies in out database, we can run the following command: 
+In case we want to avoid redundancies in out database, we can run the following command. Note the default Sequelize configuration does not work with these keys (see Sequelize documentation on [model definition](https://sequelize.org/v5/manual/models-definition.html)).  
 
 ```sql
 create table zbs(
@@ -109,7 +109,7 @@ create table transport(
 
 ## 2. NPM Setup
 
-Run the following command to install the dependencies and get started:
+Run the following command to install the dependencies and get started. 
 
 ```shell
 npm i express sequelize dotenv express-handlebars;
@@ -117,7 +117,7 @@ npm i --save-dev nodemon;
 npm i --save pg pg-hstore
 ```
 
-Update the `scripts` in the `package.json`, s.t.:
+Update the `scripts` in the `package.json`. 
 
 ```json
 "scripts": {
@@ -136,6 +136,7 @@ We perform the following steps:
 - Set up Sequelize. We store the connection to the database in `./config/database.js` and export the variable `db` to out `app.js`. Test the connection to the database.
 - We create a model for the resources. To simplify the project we create a single model for the transport objects.
 - We create the routes for the project and test them. 
+- 
 
 ## 4. Prerequisites
 

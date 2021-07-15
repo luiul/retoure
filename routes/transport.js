@@ -25,23 +25,41 @@ router.get('/add', (req, res) => res.render('add'))
 
 // Add transport (hardcoded to start with)
 router.post('/add', (req, res) => {
-    const data = {
-        transport_status: 1,
-        paket_id: 7,
-        paket_bez: 'Watch',
-        fach_bez: 'Fach 6',
-        zbs_bez: 'ZBS 1',
-        tour_bez: 'NRW 1',
-        tour: ['00000', '00001', '00002', '00003', '00ß00'],
-        emp_name: 'Charlie',
-        emp_plz: '00001',
-        abd_name: 'Bob',
-        abd_plz: '00001',
-        abholversuch: 0,
-        alter:0
-    }
+    // const data = {
+    //     transport_status: 1,
+    //     paket_id: 7,
+    //     paket_bez: 'Watch',
+    //     fach_bez: 'Fach 6',
+    //     zbs_bez: 'ZBS 1',
+    //     tour_bez: 'NRW 1',
+    //     tour: ['00000', '00001', '00002', '00003', '00ß00'],
+    //     emp_name: 'Charlie',
+    //     emp_plz: '00001',
+    //     abd_name: 'Bob',
+    //     abd_plz: '00001',
+    //     abholversuch: 0,
+    //     alter:0
+    // }
 
-    let { transport_status, paket_id, paket_bez, fach_bez, zbs_bez, tour_bez, tour, emp_name, emp_plz, abd_name, abd_plz, abholversuch, alter } = data
+    let { transport_status, paket_id, paket_bez, fach_bez, zbs_bez, tour_bez, tour, emp_name, emp_plz, abd_name, abd_plz, abholversuch, alter } = req.body
+
+    tour = tour.split(',')
+
+    // Server-side validation
+    // let errors = []
+    // if(!transport_status){
+    //     errors.push({text:'Packet-Status hinzufügen'})
+    // }
+
+    // Check for errors
+    // if (errors.length > 0) {
+    //     res.render('add', {
+    //         errors,
+    //         transport_status, paket_id, paket_bez, fach_bez, zbs_bez, tour_bez, tour, emp_name, emp_plz, abd_name, abd_plz, abholversuch, alter
+    //     })
+    // } else {
+    //     // insert
+    // }
 
     // Insert into table
     Transport.create({

@@ -27,7 +27,8 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars')
 
 // Body Parser
-app.use(express.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: true }));
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')))
@@ -46,6 +47,7 @@ app.listen(PORT, console.log(`Server started on port ${PORT}`))
 // Database
 // Export db object
 const db = require('./config/database')
+const bodyParser = require('body-parser')
 
 // Testing the connection (we remove the await keyword)
 try {

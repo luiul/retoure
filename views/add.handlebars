@@ -2,11 +2,6 @@
   <div class="form-wrap">
     <h1>Auftrag hinzufügen</h1>
     <form action="/transport/add" method="POST">
-      {{#each errors}}
-      <div class="error">
-        <p>{{dataValuestext}}</p>
-      </div>
-      {{/each}}
 
       <div class="input-group">
         <label for="transport_status">Packet-Status &ensp;<span style="color: var(--primary-color)">0 : nicht geliefert, 1 : geliefert</span></label>
@@ -85,7 +80,7 @@
             <div class="input-group">
         <label for="alter">alter &ensp;<span style="color: var(--primary-color)">max. Alter 14 Tage</span></label>
         <input type="number" name="alter" id="alter" class="input-box" placeholder="alter"
-          maxlength="100" value={{abholversuch}}>
+          maxlength="100" value={{alter}}>
       </div>
 
       <input type="submit" value="Add transport" class="btn btn-reverse">

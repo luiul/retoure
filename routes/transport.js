@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const db = require('../config/database')
 const Transport = require('../models/Transport')
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 // Testing transport page
 // router.get('/',(req,res)=>{
@@ -93,13 +95,41 @@ router.post('/add', (req, res) => {
         Transport.create({
             paket_id, paket_bez, fach_bez, zbs_bez, tour_bez, tour, emp_name, emp_plz, abd_name, abd_plz
         })
-            .then(transport => res.redirect('/transport'))
-            .catch(err => console.log(err))
+        .then(transport => res.redirect('/transport'))
+        .catch(err => console.log(err))
     }
-
-
 })
 
-// sequelize handles the createdAt and updatedAt
+// search for transport
+// router.get('/search', (req, res) => {
+//     const { term } = req.query
+//     Transport.findAll({
+//         where: {
+//             id : {
+//                 [Op.iLike]:'%'+term+'%'
+//             }
+//         }
+//     })
+//     .then(transport => res.render('transport',{transport}))
+//     .catch(err => console.log(err))
+// })
+
+router.get('/search', (req, res) => {
+    let {term} = req.query
+
+    term = parseInt(term)
+    
+    // console.log(term)
+    // console.log(typeof term)
+
+    Transport.findAll({
+        where:{
+            paket_id:term
+        }
+    })
+    .then(transport => res.render('transport',{transport}))
+    .catch(err => console.log(err))
+})
+
 
 module.exports = router

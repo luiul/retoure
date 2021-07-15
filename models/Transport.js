@@ -12,20 +12,11 @@ const Transport = db.define('transport', {
     paket_bez: {
         type: Sequelize.STRING
     },
-    fach_id: {
-        type: Sequelize.INTEGER
-    },
     fach_bez: {
         type: Sequelize.STRING
     },
-    zbs_id: {
-        type: Sequelize.INTEGER
-    },
     zbs_bez: {
         type: Sequelize.STRING
-    },
-    tour_id: {
-        type: Sequelize.INTEGER
     },
     tour_bez: {
         type: Sequelize.STRING
@@ -33,17 +24,11 @@ const Transport = db.define('transport', {
     tour: {
         type: Sequelize.ARRAY(Sequelize.STRING)
     },
-    emp_id: {
-        type: Sequelize.INTEGER
-    },
     emp_name: {
         type: Sequelize.STRING
     },
     emp_plz: {
         type: Sequelize.STRING
-    },
-    abd_id: {
-        type: Sequelize.INTEGER
     },
     abd_name: {
         type: Sequelize.STRING

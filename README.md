@@ -1,5 +1,5 @@
 <!-- omit in toc -->
-# Retoure App 🚚
+# 🚚 Retoure App
 
 Retoure app to pick up and return packages.
 
@@ -13,10 +13,39 @@ Retoure app to pick up and return packages.
 
 # 1. Database
 
+## Create Database
+
 We create only one table for this project and store the necessary data with redundancies (this simplifies the model in our app).
 
 ```sql
-create table transport(
+create table transports(
+ -- transport daten
+ id serial primary key, 
+ transport_status varchar(50) not null, 
+ paket_id int unique not null, 
+ paket_bez varchar(50) not null, 
+ fach_bez varchar(50) not null, 
+ zbs_bez varchar(50) not null,
+ -- tour daten
+ tour_bez varchar(50) not null, 
+ tour text[],
+ -- emp und abd daten
+ emp_name varchar(50) not null, 
+ emp_plz varchar(5) not null, 
+ abd_name varchar(50) not null, 
+ abd_plz varchar(5) not null, 
+ -- steuerungsdaten
+ abholversuch int,
+ -- sequilize is case sensitive, make sure the columns are named correctly
+ createdAt timestamp not null, 
+ updatedAt timestamp
+)
+```
+
+To also store secondary IDs (see assumptions). 
+
+```sql
+create table transports(
  -- transport daten
  id serial primary key, 
  transport_status varchar(50) not null, 
@@ -39,6 +68,7 @@ create table transport(
  abd_plz varchar(5) not null, 
  -- steuerungsdaten
  abholversuch int,
+ -- sequilize is case sensitive, make sure the columns are named correctly
  createdAt timestamp not null, 
  updatedAt timestamp
 )
@@ -104,6 +134,39 @@ create table transport(
 )
 ```
 
+## Populate Database
+
+```sql
+insert into transports(
+	transport_status,
+	paket_id,
+	paket_bez,
+	fach_bez,
+	zbs_bez,
+	tour_bez,
+	tour,
+	emp_name,
+	emp_plz,
+	abd_name,
+	abd_plz,
+	abholversuch 
+)
+values(
+	0,
+	1,
+	'Laptop',
+	'Fach 1',
+	'ZBS 1',
+	'NRW 1',
+	'{"Depot", "Koeln", "Duesseldorf", "Muenster", "Depot"}',
+	'Alice',
+	'00001',
+	'Bob',
+	'00001',
+	0
+)
+```
+
 # 2. NPM Setup
 
 Run the following command to install the dependencies and get started.
@@ -140,3 +203,4 @@ We perform the following steps:
 We make the following prerequisites:
 
 - No app authentication: we forgo app authentication in the interest of time.
+- We do not store IDs of secondary entity types. 

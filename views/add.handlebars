@@ -15,11 +15,17 @@
     </div>
     {{/each}}
 
+        {{#each errors}}
+    <div class="error">
+      <p>{{text}}</p>
+    </div>
+    {{/each}}
+
     <form action="/transport/add" method="POST">
 
       <div class="input-group">
         <label for="paket_id">Packet-ID</label>
-        <input type="number" name="paket_id" id="paket_id" class="input-box" placeholder="paket_id" maxlength="100"
+        <input type="number" min="0" step="1" name="paket_id" id="paket_id" class="input-box" placeholder="paket_id" maxlength="100"
           value={{paket_id}}>
       </div>
 
@@ -62,19 +68,19 @@
       </div>
 
       <div class="input-group">
-        <label for="emp_plz">emp_plz</label>
+        <label for="emp_plz">Empfänger-PLZ</label>
         <input type="text" name="emp_plz" id="emp_plz" class="input-box" placeholder="emp_plz" maxlength="100"
           value={{emp_plz}}>
       </div>
 
       <div class="input-group">
-        <label for="abd_name">abd_name</label>
+        <label for="abd_name">Absender</label>
         <input type="text" name="abd_name" id="abd_name" class="input-box" placeholder="abd_name" maxlength="100"
           value={{abd_name}}>
       </div>
 
       <div class="input-group">
-        <label for="abd_plz">abd_plz</label>
+        <label for="abd_plz">Absender-PLZ</label>
         <input type="text" name="abd_plz" id="abd_plz" class="input-box" placeholder="abd_plz" maxlength="100"
           value={{abd_plz}}>
       </div>

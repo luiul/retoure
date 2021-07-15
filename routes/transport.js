@@ -43,9 +43,6 @@ router.post('/add', (req, res) => {
 
     let { paket_id, paket_bez, fach_bez, zbs_bez, tour_bez, tour, emp_name, emp_plz, abd_name, abd_plz } = req.body
 
-    // Prepare tour array for Sequelize
-    tour = tour.split(',')
-
     // Server-side validation
     let errors = [];
 
@@ -90,9 +87,11 @@ router.post('/add', (req, res) => {
             paket_id, paket_bez, fach_bez, zbs_bez, tour_bez, tour, emp_name, emp_plz, abd_name, abd_plz
         })
     } else {
+        // Prepare tour array for Sequelize
+        tour = tour.split(',')
         // Insert into table
         Transport.create({
-            transport_status, paket_id, paket_bez, fach_bez, zbs_bez, tour_bez, tour, emp_name, emp_plz, abd_name, abd_plz, abholversuch, alter
+            paket_id, paket_bez, fach_bez, zbs_bez, tour_bez, tour, emp_name, emp_plz, abd_name, abd_plz
         })
             .then(transport => res.redirect('/transport'))
             .catch(err => console.log(err))

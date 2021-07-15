@@ -13,13 +13,15 @@ const DB_PASSWORD = process.env.DB_PASSWORD
 module.exports = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
     host: 'localhost',
     dialect: 'postgres',
+    operatorsAliases: 0,
+    logging: console.log
 
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    }
+    // pool: {
+    //     max: 5,
+    //     min: 0,
+    //     acquire: 30000,
+    //     idle: 10000
+    // }
 });
 
 // we write our own authentication test as an alternative

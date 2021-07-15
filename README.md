@@ -13,6 +13,8 @@ Retoure app to pick up and return packages.
 
 # 1. Database
 
+We create a single table to store our data to simply our model (see assumptions). 
+
 ## Create Database
 
 We create only one table for this project and store the necessary data with redundancies (this simplifies the model in our app).
@@ -36,9 +38,9 @@ create table transports(
  abd_plz varchar(5) not null, 
  -- steuerungsdaten
  abholversuch int,
- -- sequilize is case sensitive, make sure the columns are named correctly
- createdAt timestamp not null, 
- updatedAt timestamp
+ -- sequilize is case sensitive, make sure the columns are named correctly!
+ "createdAt" timestamp not null, 
+ "updatedAt" timestamp
 )
 ```
 
@@ -74,7 +76,7 @@ create table transports(
 )
 ```
 
-In case we want to avoid redundancies in out database, we can run the following command. Note the default Sequelize configuration does not work with these keys (see Sequelize documentation on [model definition](https://sequelize.org/v5/manual/models-definition.html)).  
+In case we want to avoid redundancies in out database, we can run the following command. Note the default Sequelize ORM configuration does not work with these keys (see Sequelize documentation on [model definition](https://sequelize.org/v5/manual/models-definition.html)).  
 
 ```sql
 create table zbs(
@@ -149,7 +151,10 @@ insert into transports(
 	emp_plz,
 	abd_name,
 	abd_plz,
-	abholversuch 
+	abholversuch,
+	"createdAt",
+	"updatedAt"
+	
 )
 values(
 	0,
@@ -158,12 +163,14 @@ values(
 	'Fach 1',
 	'ZBS 1',
 	'NRW 1',
-	'{"Depot", "Koeln", "Duesseldorf", "Muenster", "Depot"}',
+	'{"00000", "00001", "00002", "00003", "00000"}',
 	'Alice',
 	'00001',
 	'Bob',
 	'00001',
-	0
+	0,
+	now(),
+	now()
 )
 ```
 
@@ -204,3 +211,4 @@ We make the following prerequisites:
 
 - No app authentication: we forgo app authentication in the interest of time.
 - We do not store IDs of secondary entity types. 
+- Add rutnime option to disable check "own property" of its parent (see [here](https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access) and [here](https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access)). 

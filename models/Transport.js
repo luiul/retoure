@@ -1,4 +1,4 @@
-// Transort object model 
+ // Transort object model 
 const { Sequelize } = require('sequelize');
 const db = require('../config/database')
 
@@ -37,6 +37,9 @@ const Transport = db.define('transport', {
         type: Sequelize.STRING
     },
     abholversuch: {
+        type: Sequelize.INTEGER
+    },
+    alter: {
         type: Sequelize.INTEGER
     }
 

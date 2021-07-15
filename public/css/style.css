@@ -121,6 +121,7 @@ header.inner {
   color: #fff;
   margin: 0 0 1.5rem;
   text-align: center;
+     text-shadow: 2px 2px black;
 }
 
 .search-form input[type='submit'] {
@@ -182,9 +183,9 @@ input[type='search'] {
   padding: 0.6rem;
 }
 
-/* .transport .tech span {
+.transport span {
   color: var(--primary-color);
-} */
+}
 
 /* Form */
 .form-wrap {

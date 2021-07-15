@@ -1,8 +1,12 @@
+// Entry point
 // Initial setup
 const express = require('express')
 const path = require('path')
 const exphbs = require('express-handlebars')
 const dotenv = require('dotenv')
+// const bodyParser = require('body-parser');
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
+const Handlebars = require('handlebars')
 
 
 dotenv.config({ path: "./.env" })
@@ -16,17 +20,21 @@ const PORT = process.env.PORT || 5000
 // const DB_USER = process.env.DB_USER
 // const DB_PASSWORD = process.env.DB_PASSWORD
 
-// Handlebars
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+// Handlebars middlewearv    
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main', handlebars: allowInsecurePrototypeAccess(Handlebars)
+}))
 app.set('view engine', 'handlebars')
+
+// Body Parser
+app.use(express.urlencoded({ extended: false }));
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')))
 
-
 // Index route
 app.get('/', (req, res) => {
-    res.render('index', { layout : 'landing' })
+    res.render('index', { layout: 'landing' })
 })
 
 // Transport routes
@@ -35,7 +43,7 @@ app.use('/transport', require('./routes/transport'))
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`))
 
-
+// Database
 // Export db object
 const db = require('./config/database')
 

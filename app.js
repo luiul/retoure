@@ -20,11 +20,14 @@ const PORT = process.env.PORT || 5000
 // const DB_USER = process.env.DB_USER
 // const DB_PASSWORD = process.env.DB_PASSWORD
 
-// Handlebars middlewearv    
-app.engine('handlebars', exphbs({
-    defaultLayout: 'main', handlebars: allowInsecurePrototypeAccess(Handlebars)
-}))
-app.set('view engine', 'handlebars')
+// Handlebars middlewearv
+// app.engine('.hbs', exphbs({
+//     defaultLayout: 'main', handlebars: allowInsecurePrototypeAccess(Handlebars, extname: '.hbs')
+// }))
+// app.set('view engine', 'handlebars')
+
+app.engine('.hbs', exphbs({extname: '.hbs',defaultLayout: 'main', handlebars: allowInsecurePrototypeAccess(Handlebars)}));
+app.set('view engine', '.hbs');
 
 // Body Parser
 // app.use(bodyParser.urlencoded({extended:false}))

@@ -1,14 +1,14 @@
 <!-- omit in toc -->
 # 🚚 Retoure App
 
-Retoure app to pick up and return packages.
+Retoure app to pick up and return packages. Updated version can be found in GitHub: [🚚 Retouren App with Sequelize Migration](https://github.com/luiul/retoure-mig).
 
 <!-- omit in toc -->
 # Table of Contents
 <!-- toc here -->
 - [1. Database](#1-database)
-	- [1.1. Create Database](#11-create-database)
-	- [1.2. Populate Database](#12-populate-database)
+  - [1.1. Create Database](#11-create-database)
+  - [1.2. Populate Database](#12-populate-database)
 - [2. NPM Setup](#2-npm-setup)
 - [3. Development](#3-development)
 - [4. Prerequisites](#4-prerequisites)

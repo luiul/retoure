@@ -1,4 +1,4 @@
- // Transort object model 
+ // Transort object model
 const { Sequelize } = require('sequelize');
 const db = require('../config/database')
 
@@ -24,6 +24,9 @@ const Transport = db.define('transport', {
     tour: {
         type: Sequelize.ARRAY(Sequelize.STRING)
     },
+    tour_zeit: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+    },
     emp_name: {
         type: Sequelize.STRING
     },
@@ -41,7 +44,10 @@ const Transport = db.define('transport', {
     },
     alter: {
         type: Sequelize.INTEGER
-    }
+    },
+    tour_zeit: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+    },
 
 })
 

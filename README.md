@@ -1,17 +1,19 @@
 # 🚚 Retoure App
 
-Retoure app to pick up and return packages. **Updated version can be found in GitHub: [🚚 Retouren App with Sequelize Migration](https://github.com/luiul/retoure-mig).**
+Retoure app to pick up and return packages. **Upgraded version can be found in GitHub: [🚚 Retouren App with Sequelize Migration](https://github.com/luiul/retoure-mig).**
 
 ## Database
 
-Create a table to store our data. Basic postgres navigation commads:
+Basic postgres navigation commads:
 
 - `\l` to list all databases in postgres
 - `\c` to move inside a database
 - `\dt` to show table in database
 
+Enter the following `create database` statement in the PostgreSQL Query Tool or console:
+
 ```sql
-create database retoure create table transports(
+create database retoure create table transport(
   -- default primery key for Sequelize
   id serial primary key,
   -- transportation data
@@ -31,13 +33,13 @@ create database retoure create table transports(
   -- transport parameters
   abholversuch int default 0,
   alter int default 0,
-  -- Sequelize is case sensitive, make sure the columns are named correctly!
-  -- Sequelize records these automatically
+  -- Sequelize is case sensitive, make sure the columns are named correctly; records these automatically
   "createdAt" timestamp not null,
   "updatedAt" timestamp
 )
 ```
-Populate table with data, e.g.:
+
+Populate table with example data:
 
 ```sql
 insert into
@@ -88,17 +90,7 @@ npm i --D nodemon @handlebars/allow-prototype-access express-handlebars handleba
 npm i --save pg pg-hstore
 ```
 
-Update the `scripts` in the `package.json`:
-
-```json
-"scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "nodemon app.js"
-}
-```
-
-Run app from shell with command  `npm run dev`. Open app in `localhost:5000`.
+Update the `scripts` in the `package.json` file and run app from shell with command  `npm run dev`. Default `host` is localhost and default `port` is 5000.
 
 ## Development
 
@@ -116,5 +108,5 @@ We perform the following tasks to start the project:
 We make the following prerequisites:
 
 - No authentication.
-- We store all data in one table to simplify the model. Note that the model is equivalent to a PostgreSQL view.
-- Add runtime option to disable check "own property" of its parent (see [here](https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access) and [here](https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access)). Turn this option off in production.
+- We store all data in one table to simplify the model. Note that the model is equivalent to a PostgreSQL view (see upgraded version of the app).
+- Add runtime option to disable check "own property" of its parent (see [here](https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access) and [here](https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access)). Turn this option off in production!

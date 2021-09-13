@@ -103,10 +103,10 @@ We perform the following tasks to start the project:
 - Create the routes for app. Test routes.
 - Add the middleware to finish the interface of the app. Add `handlebars`, `css` files in views and public files respectively.
 
-## Prerequisites
+## Assumptions
 
-We make the following prerequisites:
+We make the following assumptions:
 
-- No authentication.
+- No app authentication. User and admin views are changed manually. 
 - We store all data in one table to simplify the model. Note that the model is equivalent to a PostgreSQL view (see upgraded version of the app).
 - Add runtime option to disable check "own property" of its parent (see [here](https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access) and [here](https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access)). Turn this option off in production!
